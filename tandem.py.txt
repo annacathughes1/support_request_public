@@ -1,0 +1,130 @@
+"""Demo model of SimpleKit usage."""
+from simplekit import SimpleKit
+import numpy
+import math
+import sys
+import queue
+
+DEBUG = False               # Toggle to get data dump for all events
+PRODUCTION_RUN = False      # Toggle to use random seeding
+
+class Customer:
+    customerCount = 0
+
+    def __init__(self, arrivalTime):
+        Customer.customerCount += 1
+        self.number = Customer.customerCount
+        self.arrivalTime = arrivalTime
+
+    def timeInSystem(self, currentTime):
+        return currentTime - self.arrivalTime
+
+
+class NamedQueue:
+    def __init__(self, maxServers = 1, svcRate = 1, arrRate = None, next = None, name = "unknown"):
+        if arrRate == None:
+            self.meanArrival = None
+        else:
+            self.meanArrival = 1.0 / arrRate
+        self.meanSvc = 1.0 / svcRate
+        self.numAvailableServers = maxServers
+        self.queue = queue.Queue()
+        self.next = next
+        self.name = name
+
+    def push(self, customer):
+        self.queue.put(customer)
+
+    def pop(self):
+        if self.queue.empty():
+            return None
+        else:
+            return self.queue.get()
+
+
+class Tandem(SimpleKit):
+    """Implementation of a tandem queueing model using SimpleKit."""
+
+    def __init__(self, routing, startQueue = None, shutdownTime = 10.0):
+        """Construct an instance of the tandem queueing system."""
+        SimpleKit.__init__(self)
+        self.routing = routing
+        self.startQueue = startQueue
+        self.shutdownTime = shutdownTime
+
+    def init(self):
+        """Initialize all state variables, schedule first arrival and the halt."""
+        """Note that halt stops new arrivals, but continues in-progress work."""
+        self.schedule(self.arrival, 0.0)
+        self.schedule(self.shutdown, self.shutdownTime, priority = 0)
+        if DEBUG:
+            self.dumpState("Init")
+
+    def arrival(self):
+        """Schedule join of the first queue and the next arrival."""
+        queue = self.routing[self.startQueue]
+        self.schedule(self.join, 0, queue, Customer(self.model_time))
+        mean = queue.meanArrival
+        self.schedule(self.arrival, numpy.random.exponential(mean))
+        if DEBUG:
+            self.dumpState("Arrival")
+
+    def join(self, queue, customer):
+        """Enqueue the customer, schedule begin service if possible."""
+        queue.push(customer)
+        if queue.numAvailableServers > 0:
+            self.schedule(self.beginService, 0.0, queue, priority = 2)
+        if DEBUG:
+            self.dumpState("Join")
+
+    def beginService(self, queue):
+        """Remove customer from the queue, allocate server, schedule endService."""
+        customer = queue.pop()
+        queue.numAvailableServers -= 1
+        delay = numpy.random.exponential(queue.meanSvc)
+        self.schedule(self.endService, delay, queue, customer)
+        if DEBUG:
+            self.dumpState("beginService")
+
+    def endService(self, queue, customer):
+        """Free server, if customers are waiting initiate another service. Pass"""
+        """the customer to the next queue if one exists."""
+        queue.numAvailableServers += 1
+        if queue.queue.qsize() > 0:
+            self.schedule(self.beginService, 0.0, queue, priority = 1)
+        if not (queue.next == None):
+            self.schedule(self.join, 0.0, self.routing[queue.next], customer)
+        print(
+            "End service at %-12s" % queue.name,
+            "Time: %6.2f" % self.model_time,
+            "Customer id: %d" % customer.number,
+            "Time in System: %6.2f" % customer.timeInSystem(self.model_time)
+            )
+        if DEBUG:
+            self.dumpState("endService")
+
+    def shutdown(self):
+        """Close shop by shutting doors, i.e., no more arrivals. Finish"""
+        """serving existing customers"""
+        self.cancel_next(self.arrival)
+        if DEBUG:
+            self.dumpState("shutdown")
+
+    def dumpState(self, event):
+        """Dump of the current state of the model."""
+        print("Time: %6.2f" % self.model_time, "  Event: %-12s" % event)
+        for name in self.routing:
+            q = self.routing[name]
+            print(name,  ":  Queue Length: %3d" % q.queue.qsize(),
+                " Available Servers: ", q.numAvailableServers)
+
+
+if __name__ == '__main__':
+    if not PRODUCTION_RUN:
+        numpy.random.seed(12345)    # For reproducibility.
+    # Instantiate and run a copy of the tandem model.
+    routing = {
+        "first": NamedQueue(maxServers = 5, svcRate = 1.0, arrRate = 4.5, next = "second", name = "first"),
+        "second": NamedQueue(maxServers = 5, svcRate = 1.5, name = "second")
+        }
+    model = Tandem(routing, startQueue = "first", shutdownTime = 100.0).run()

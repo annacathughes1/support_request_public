@@ -1,0 +1,998 @@
+%YAML 1.1
+
+# This configuration file tests OCOrequest.py with different request arrival rates and service time distributions for each unit.
+
+# The series uses 97 design points (3 stacks, 33 levels) and is generated from "stack_nolhs.rb". This is an experiment design using pre-tabled nearly orthogonal latin hypercubes (NOHLs) with factor scaling.
+
+### arrivalRate: [0.143,2] to 3 decimal places
+
+### service time distributions [1,4] integers
+### svcDist:
+###    1: sexp  # shifted exponential
+###    2: tri   # triangle
+###    3: unif  # uniform
+###    4: exp   # exponential
+
+### mean service time: [0.011,4] to 3 decimal place
+### this is equivalent to a range of 15 minutes to four full days
+
+### maxServers: [1,3] integers
+
+### availability: [0.25,0.9] to 2 decimal places
+
+### retainRate: [0.25,0.9] to 2 decimal places
+
+### incrementMin: [0,20] integers
+
+### incrementRange [1,50] integers
+---
+
+### DP 1
+- arrivalRate: !!float 2.0
+  svcDist: sexp
+  meanSvc: 1.756
+  maxServers: !!int 1
+  availability: !!float 0.82
+  retainRate: !!float 0.66
+  incrementMin: !!int 14
+  incrementRange: !!int 24
+
+### DP 2
+- arrivalRate: !!float 1.826
+  svcDist: exp
+  meanSvc: 0.51
+  maxServers: !!int 2
+  availability: !!float 0.55
+  retainRate: !!float 0.37
+  incrementMin: !!int 15
+  incrementRange: !!int 16
+
+### DP 3
+- arrivalRate: !!float 1.768
+  svcDist: tri
+  meanSvc: 3.626
+  maxServers: !!int 1
+  availability: !!float 0.27
+  retainRate: !!float 0.64
+  incrementMin: !!int 14
+  incrementRange: !!int 3
+
+### DP 4
+- arrivalRate: !!float 1.188
+  svcDist: exp
+  meanSvc: 4.0
+  maxServers: !!int 2
+  availability: !!float 0.86
+  retainRate: !!float 0.35
+  incrementMin: !!int 16
+  incrementRange: !!int 4
+
+### DP 5
+- arrivalRate: !!float 1.884
+  svcDist: sexp
+  meanSvc: 1.881
+  maxServers: !!int 1
+  availability: !!float 0.7
+  retainRate: !!float 0.72
+  incrementMin: !!int 8
+  incrementRange: !!int 29
+
+### DP 6
+- arrivalRate: !!float 1.942
+  svcDist: exp
+  meanSvc: 1.258
+  maxServers: !!int 2
+  availability: !!float 0.53
+  retainRate: !!float 0.39
+  incrementMin: !!int 3
+  incrementRange: !!int 44
+
+### DP 7
+- arrivalRate: !!float 1.42
+  svcDist: tri
+  meanSvc: 3.875
+  maxServers: !!int 2
+  availability: !!float 0.25
+  retainRate: !!float 0.68
+  incrementMin: !!int 8
+  incrementRange: !!int 45
+
+### DP 8
+- arrivalRate: !!float 1.13
+  svcDist: unif
+  meanSvc: 3.751
+  maxServers: !!int 2
+  availability: !!float 0.84
+  retainRate: !!float 0.41
+  incrementMin: !!int 4
+  incrementRange: !!int 50
+
+### DP 9
+- arrivalRate: !!float 1.362
+  svcDist: tri
+  meanSvc: 0.884
+  maxServers: !!int 2
+  availability: !!float 0.72
+  retainRate: !!float 0.45
+  incrementMin: !!int 0
+  incrementRange: !!int 10
+
+### DP 10
+- arrivalRate: !!float 1.536
+  svcDist: unif
+  meanSvc: 1.133
+  maxServers: !!int 2
+  availability: !!float 0.39
+  retainRate: !!float 0.6
+  incrementMin: !!int 2
+  incrementRange: !!int 19
+
+### DP 11
+- arrivalRate: !!float 1.478
+  svcDist: tri
+  meanSvc: 3.003
+  maxServers: !!int 3
+  availability: !!float 0.47
+  retainRate: !!float 0.29
+  incrementMin: !!int 3
+  incrementRange: !!int 9
+
+### DP 12
+- arrivalRate: !!float 1.594
+  svcDist: unif
+  meanSvc: 2.629
+  maxServers: !!int 3
+  availability: !!float 0.74
+  retainRate: !!float 0.88
+  incrementMin: !!int 9
+  incrementRange: !!int 21
+
+### DP 13
+- arrivalRate: !!float 1.246
+  svcDist: sexp
+  meanSvc: 0.759
+  maxServers: !!int 2
+  availability: !!float 0.64
+  retainRate: !!float 0.33
+  incrementMin: !!int 19
+  incrementRange: !!int 39
+
+### DP 14
+- arrivalRate: !!float 1.71
+  svcDist: unif
+  meanSvc: 1.507
+  maxServers: !!int 3
+  availability: !!float 0.35
+  retainRate: !!float 0.62
+  incrementMin: !!int 19
+  incrementRange: !!int 36
+
+### DP 15
+- arrivalRate: !!float 1.304
+  svcDist: tri
+  meanSvc: 3.377
+  maxServers: !!int 3
+  availability: !!float 0.49
+  retainRate: !!float 0.25
+  incrementMin: !!int 13
+  incrementRange: !!int 38
+
+### DP 16
+- arrivalRate: !!float 1.652
+  svcDist: unif
+  meanSvc: 2.379
+  maxServers: !!int 3
+  availability: !!float 0.78
+  retainRate: !!float 0.84
+  incrementMin: !!int 11
+  incrementRange: !!int 33
+
+### DP 17
+- arrivalRate: !!float 1.072
+  svcDist: unif
+  meanSvc: 2.006
+  maxServers: !!int 2
+  availability: !!float 0.57
+  retainRate: !!float 0.57
+  incrementMin: !!int 10
+  incrementRange: !!int 26
+
+### DP 18
+- arrivalRate: !!float 0.143
+  svcDist: exp
+  meanSvc: 2.255
+  maxServers: !!int 3
+  availability: !!float 0.33
+  retainRate: !!float 0.49
+  incrementMin: !!int 6
+  incrementRange: !!int 27
+
+### DP 19
+- arrivalRate: !!float 0.317
+  svcDist: sexp
+  meanSvc: 3.501
+  maxServers: !!int 2
+  availability: !!float 0.6
+  retainRate: !!float 0.78
+  incrementMin: !!int 5
+  incrementRange: !!int 35
+
+### DP 20
+- arrivalRate: !!float 0.375
+  svcDist: unif
+  meanSvc: 0.385
+  maxServers: !!int 3
+  availability: !!float 0.88
+  retainRate: !!float 0.51
+  incrementMin: !!int 6
+  incrementRange: !!int 48
+
+### DP 21
+- arrivalRate: !!float 0.955
+  svcDist: sexp
+  meanSvc: 0.011
+  maxServers: !!int 2
+  availability: !!float 0.29
+  retainRate: !!float 0.8
+  incrementMin: !!int 4
+  incrementRange: !!int 47
+
+### DP 22
+- arrivalRate: !!float 0.259
+  svcDist: exp
+  meanSvc: 2.13
+  maxServers: !!int 3
+  availability: !!float 0.45
+  retainRate: !!float 0.43
+  incrementMin: !!int 12
+  incrementRange: !!int 22
+
+### DP 23
+- arrivalRate: !!float 0.201
+  svcDist: sexp
+  meanSvc: 2.753
+  maxServers: !!int 2
+  availability: !!float 0.62
+  retainRate: !!float 0.76
+  incrementMin: !!int 17
+  incrementRange: !!int 7
+
+### DP 24
+- arrivalRate: !!float 0.723
+  svcDist: unif
+  meanSvc: 0.136
+  maxServers: !!int 3
+  availability: !!float 0.9
+  retainRate: !!float 0.47
+  incrementMin: !!int 13
+  incrementRange: !!int 6
+
+### DP 25
+- arrivalRate: !!float 1.013
+  svcDist: tri
+  meanSvc: 0.26
+  maxServers: !!int 2
+  availability: !!float 0.31
+  retainRate: !!float 0.74
+  incrementMin: !!int 16
+  incrementRange: !!int 1
+
+### DP 26
+- arrivalRate: !!float 0.781
+  svcDist: unif
+  meanSvc: 3.127
+  maxServers: !!int 2
+  availability: !!float 0.43
+  retainRate: !!float 0.7
+  incrementMin: !!int 20
+  incrementRange: !!int 41
+
+### DP 27
+- arrivalRate: !!float 0.607
+  svcDist: tri
+  meanSvc: 2.878
+  maxServers: !!int 2
+  availability: !!float 0.76
+  retainRate: !!float 0.55
+  incrementMin: !!int 18
+  incrementRange: !!int 32
+
+### DP 28
+- arrivalRate: !!float 0.665
+  svcDist: unif
+  meanSvc: 1.008
+  maxServers: !!int 1
+  availability: !!float 0.68
+  retainRate: !!float 0.86
+  incrementMin: !!int 18
+  incrementRange: !!int 42
+
+### DP 29
+- arrivalRate: !!float 0.549
+  svcDist: tri
+  meanSvc: 1.382
+  maxServers: !!int 1
+  availability: !!float 0.41
+  retainRate: !!float 0.27
+  incrementMin: !!int 11
+  incrementRange: !!int 30
+
+### DP 30
+- arrivalRate: !!float 0.897
+  svcDist: exp
+  meanSvc: 3.252
+  maxServers: !!int 2
+  availability: !!float 0.51
+  retainRate: !!float 0.82
+  incrementMin: !!int 1
+  incrementRange: !!int 12
+
+### DP 31
+- arrivalRate: !!float 0.433
+  svcDist: tri
+  meanSvc: 2.504
+  maxServers: !!int 1
+  availability: !!float 0.8
+  retainRate: !!float 0.53
+  incrementMin: !!int 1
+  incrementRange: !!int 15
+
+### DP 32
+- arrivalRate: !!float 0.839
+  svcDist: unif
+  meanSvc: 0.634
+  maxServers: !!int 1
+  availability: !!float 0.66
+  retainRate: !!float 0.9
+  incrementMin: !!int 7
+  incrementRange: !!int 13
+
+### DP 33
+- arrivalRate: !!float 0.491
+  svcDist: tri
+  meanSvc: 1.632
+  maxServers: !!int 1
+  availability: !!float 0.37
+  retainRate: !!float 0.31
+  incrementMin: !!int 9
+  incrementRange: !!int 18
+
+### DP 34
+- arrivalRate: !!float 0.317
+  svcDist: tri
+  meanSvc: 0.759
+  maxServers: !!int 3
+  availability: !!float 0.66
+  retainRate: !!float 0.7
+  incrementMin: !!int 9
+  incrementRange: !!int 50
+
+### DP 35
+- arrivalRate: !!float 2.0
+  svcDist: sexp
+  meanSvc: 1.507
+  maxServers: !!int 2
+  availability: !!float 0.37
+  retainRate: !!float 0.74
+  incrementMin: !!int 6
+  incrementRange: !!int 45
+
+### DP 36
+- arrivalRate: !!float 0.955
+  svcDist: exp
+  meanSvc: 0.634
+  maxServers: !!int 1
+  availability: !!float 0.64
+  retainRate: !!float 0.72
+  incrementMin: !!int 1
+  incrementRange: !!int 16
+
+### DP 37
+- arrivalRate: !!float 1.768
+  svcDist: exp
+  meanSvc: 1.632
+  maxServers: !!int 3
+  availability: !!float 0.35
+  retainRate: !!float 0.78
+  incrementMin: !!int 1
+  incrementRange: !!int 22
+
+### DP 38
+- arrivalRate: !!float 0.201
+  svcDist: tri
+  meanSvc: 0.884
+  maxServers: !!int 2
+  availability: !!float 0.72
+  retainRate: !!float 0.51
+  incrementMin: !!int 11
+  incrementRange: !!int 4
+
+### DP 39
+- arrivalRate: !!float 1.884
+  svcDist: tri
+  meanSvc: 1.133
+  maxServers: !!int 2
+  availability: !!float 0.39
+  retainRate: !!float 0.35
+  incrementMin: !!int 18
+  incrementRange: !!int 3
+
+### DP 40
+- arrivalRate: !!float 1.013
+  svcDist: exp
+  meanSvc: 1.008
+  maxServers: !!int 1
+  availability: !!float 0.68
+  retainRate: !!float 0.49
+  incrementMin: !!int 18
+  incrementRange: !!int 44
+
+### DP 41
+- arrivalRate: !!float 1.42
+  svcDist: exp
+  meanSvc: 1.382
+  maxServers: !!int 3
+  availability: !!float 0.41
+  retainRate: !!float 0.39
+  incrementMin: !!int 20
+  incrementRange: !!int 27
+
+### DP 42
+- arrivalRate: !!float 0.607
+  svcDist: tri
+  meanSvc: 2.13
+  maxServers: !!int 2
+  availability: !!float 0.45
+  retainRate: !!float 0.25
+  incrementMin: !!int 4
+  incrementRange: !!int 30
+
+### DP 43
+- arrivalRate: !!float 1.362
+  svcDist: tri
+  meanSvc: 2.753
+  maxServers: !!int 1
+  availability: !!float 0.6
+  retainRate: !!float 0.31
+  incrementMin: !!int 8
+  incrementRange: !!int 42
+
+### DP 44
+- arrivalRate: !!float 0.549
+  svcDist: unif
+  meanSvc: 3.875
+  maxServers: !!int 2
+  availability: !!float 0.29
+  retainRate: !!float 0.33
+  incrementMin: !!int 3
+  incrementRange: !!int 19
+
+### DP 45
+- arrivalRate: !!float 1.478
+  svcDist: unif
+  meanSvc: 3.751
+  maxServers: !!int 3
+  availability: !!float 0.88
+  retainRate: !!float 0.55
+  incrementMin: !!int 8
+  incrementRange: !!int 12
+
+### DP 46
+- arrivalRate: !!float 0.433
+  svcDist: tri
+  meanSvc: 2.255
+  maxServers: !!int 2
+  availability: !!float 0.33
+  retainRate: !!float 0.88
+  incrementMin: !!int 16
+  incrementRange: !!int 18
+
+### DP 47
+- arrivalRate: !!float 1.246
+  svcDist: tri
+  meanSvc: 3.501
+  maxServers: !!int 1
+  availability: !!float 0.62
+  retainRate: !!float 0.86
+  incrementMin: !!int 14
+  incrementRange: !!int 13
+
+### DP 48
+- arrivalRate: !!float 0.491
+  svcDist: exp
+  meanSvc: 3.626
+  maxServers: !!int 2
+  availability: !!float 0.25
+  retainRate: !!float 0.68
+  incrementMin: !!int 15
+  incrementRange: !!int 36
+
+### DP 49
+- arrivalRate: !!float 1.304
+  svcDist: unif
+  meanSvc: 4.0
+  maxServers: !!int 3
+  availability: !!float 0.84
+  retainRate: !!float 0.62
+  incrementMin: !!int 13
+  incrementRange: !!int 41
+
+### DP 50
+- arrivalRate: !!float 1.826
+  svcDist: unif
+  meanSvc: 3.252
+  maxServers: !!int 1
+  availability: !!float 0.49
+  retainRate: !!float 0.45
+  incrementMin: !!int 11
+  incrementRange: !!int 1
+
+### DP 51
+- arrivalRate: !!float 0.143
+  svcDist: exp
+  meanSvc: 2.504
+  maxServers: !!int 2
+  availability: !!float 0.78
+  retainRate: !!float 0.41
+  incrementMin: !!int 14
+  incrementRange: !!int 6
+
+### DP 52
+- arrivalRate: !!float 1.188
+  svcDist: sexp
+  meanSvc: 3.377
+  maxServers: !!int 3
+  availability: !!float 0.51
+  retainRate: !!float 0.43
+  incrementMin: !!int 19
+  incrementRange: !!int 35
+
+### DP 53
+- arrivalRate: !!float 0.375
+  svcDist: sexp
+  meanSvc: 2.379
+  maxServers: !!int 1
+  availability: !!float 0.8
+  retainRate: !!float 0.37
+  incrementMin: !!int 19
+  incrementRange: !!int 29
+
+### DP 54
+- arrivalRate: !!float 1.942
+  svcDist: unif
+  meanSvc: 3.127
+  maxServers: !!int 2
+  availability: !!float 0.43
+  retainRate: !!float 0.64
+  incrementMin: !!int 9
+  incrementRange: !!int 47
+
+### DP 55
+- arrivalRate: !!float 0.259
+  svcDist: unif
+  meanSvc: 2.878
+  maxServers: !!int 2
+  availability: !!float 0.76
+  retainRate: !!float 0.8
+  incrementMin: !!int 3
+  incrementRange: !!int 48
+
+### DP 56
+- arrivalRate: !!float 1.13
+  svcDist: sexp
+  meanSvc: 3.003
+  maxServers: !!int 3
+  availability: !!float 0.47
+  retainRate: !!float 0.66
+  incrementMin: !!int 2
+  incrementRange: !!int 7
+
+### DP 57
+- arrivalRate: !!float 0.723
+  svcDist: sexp
+  meanSvc: 2.629
+  maxServers: !!int 1
+  availability: !!float 0.74
+  retainRate: !!float 0.76
+  incrementMin: !!int 0
+  incrementRange: !!int 24
+
+### DP 58
+- arrivalRate: !!float 1.536
+  svcDist: unif
+  meanSvc: 1.881
+  maxServers: !!int 2
+  availability: !!float 0.7
+  retainRate: !!float 0.9
+  incrementMin: !!int 16
+  incrementRange: !!int 21
+
+### DP 59
+- arrivalRate: !!float 0.781
+  svcDist: unif
+  meanSvc: 1.258
+  maxServers: !!int 3
+  availability: !!float 0.55
+  retainRate: !!float 0.84
+  incrementMin: !!int 13
+  incrementRange: !!int 9
+
+### DP 60
+- arrivalRate: !!float 1.594
+  svcDist: tri
+  meanSvc: 0.136
+  maxServers: !!int 2
+  availability: !!float 0.86
+  retainRate: !!float 0.82
+  incrementMin: !!int 17
+  incrementRange: !!int 32
+
+### DP 61
+- arrivalRate: !!float 0.665
+  svcDist: tri
+  meanSvc: 0.26
+  maxServers: !!int 2
+  availability: !!float 0.27
+  retainRate: !!float 0.6
+  incrementMin: !!int 12
+  incrementRange: !!int 39
+
+### DP 62
+- arrivalRate: !!float 1.71
+  svcDist: unif
+  meanSvc: 1.756
+  maxServers: !!int 2
+  availability: !!float 0.82
+  retainRate: !!float 0.27
+  incrementMin: !!int 4
+  incrementRange: !!int 33
+
+### DP 63
+- arrivalRate: !!float 0.897
+  svcDist: unif
+  meanSvc: 0.51
+  maxServers: !!int 3
+  availability: !!float 0.53
+  retainRate: !!float 0.29
+  incrementMin: !!int 6
+  incrementRange: !!int 38
+
+### DP 64
+- arrivalRate: !!float 1.652
+  svcDist: sexp
+  meanSvc: 0.385
+  maxServers: !!int 2
+  availability: !!float 0.9
+  retainRate: !!float 0.47
+  incrementMin: !!int 5
+  incrementRange: !!int 15
+
+### DP 65
+- arrivalRate: !!float 0.839
+  svcDist: tri
+  meanSvc: 0.011
+  maxServers: !!int 1
+  availability: !!float 0.31
+  retainRate: !!float 0.53
+  incrementMin: !!int 7
+  incrementRange: !!int 10
+
+### DP 66
+- arrivalRate: !!float 0.955
+  svcDist: tri
+  meanSvc: 3.501
+  maxServers: !!int 2
+  availability: !!float 0.7
+  retainRate: !!float 0.55
+  incrementMin: !!int 20
+  incrementRange: !!int 35
+
+### DP 67
+- arrivalRate: !!float 0.375
+  svcDist: tri
+  meanSvc: 1.881
+  maxServers: !!int 1
+  availability: !!float 0.74
+  retainRate: !!float 0.45
+  incrementMin: !!int 18
+  incrementRange: !!int 22
+
+### DP 68
+- arrivalRate: !!float 1.826
+  svcDist: sexp
+  meanSvc: 0.136
+  maxServers: !!int 2
+  availability: !!float 0.72
+  retainRate: !!float 0.27
+  incrementMin: !!int 6
+  incrementRange: !!int 48
+
+### DP 69
+- arrivalRate: !!float 2.0
+  svcDist: tri
+  meanSvc: 3.751
+  maxServers: !!int 1
+  availability: !!float 0.78
+  retainRate: !!float 0.29
+  incrementMin: !!int 9
+  incrementRange: !!int 6
+
+### DP 70
+- arrivalRate: !!float 1.013
+  svcDist: tri
+  meanSvc: 2.753
+  maxServers: !!int 2
+  availability: !!float 0.51
+  retainRate: !!float 0.62
+  incrementMin: !!int 1
+  incrementRange: !!int 7
+
+### DP 71
+- arrivalRate: !!float 0.723
+  svcDist: tri
+  meanSvc: 1.756
+  maxServers: !!int 1
+  availability: !!float 0.35
+  retainRate: !!float 0.82
+  incrementMin: !!int 1
+  incrementRange: !!int 27
+
+### DP 72
+- arrivalRate: !!float 1.942
+  svcDist: tri
+  meanSvc: 0.011
+  maxServers: !!int 2
+  availability: !!float 0.49
+  retainRate: !!float 0.84
+  incrementMin: !!int 18
+  incrementRange: !!int 1
+
+### DP 73
+- arrivalRate: !!float 1.884
+  svcDist: tri
+  meanSvc: 3.626
+  maxServers: !!int 2
+  availability: !!float 0.39
+  retainRate: !!float 0.9
+  incrementMin: !!int 11
+  incrementRange: !!int 47
+
+### DP 74
+- arrivalRate: !!float 0.549
+  svcDist: unif
+  meanSvc: 2.878
+  maxServers: !!int 2
+  availability: !!float 0.25
+  retainRate: !!float 0.37
+  incrementMin: !!int 12
+  incrementRange: !!int 30
+
+### DP 75
+- arrivalRate: !!float 0.665
+  svcDist: unif
+  meanSvc: 0.884
+  maxServers: !!int 2
+  availability: !!float 0.31
+  retainRate: !!float 0.49
+  incrementMin: !!int 17
+  incrementRange: !!int 10
+
+### DP 76
+- arrivalRate: !!float 1.536
+  svcDist: exp
+  meanSvc: 1.382
+  maxServers: !!int 1
+  availability: !!float 0.33
+  retainRate: !!float 0.35
+  incrementMin: !!int 8
+  incrementRange: !!int 32
+
+### DP 77
+- arrivalRate: !!float 1.362
+  svcDist: exp
+  meanSvc: 3.003
+  maxServers: !!int 3
+  availability: !!float 0.55
+  retainRate: !!float 0.51
+  incrementMin: !!int 4
+  incrementRange: !!int 9
+
+### DP 78
+- arrivalRate: !!float 0.491
+  svcDist: unif
+  meanSvc: 2.379
+  maxServers: !!int 1
+  availability: !!float 0.88
+  retainRate: !!float 0.76
+  incrementMin: !!int 7
+  incrementRange: !!int 15
+
+### DP 79
+- arrivalRate: !!float 0.839
+  svcDist: exp
+  meanSvc: 0.634
+  maxServers: !!int 2
+  availability: !!float 0.86
+  retainRate: !!float 0.72
+  incrementMin: !!int 5
+  incrementRange: !!int 39
+
+### DP 80
+- arrivalRate: !!float 1.71
+  svcDist: exp
+  meanSvc: 1.507
+  maxServers: !!int 1
+  availability: !!float 0.68
+  retainRate: !!float 0.74
+  incrementMin: !!int 14
+  incrementRange: !!int 18
+
+### DP 81
+- arrivalRate: !!float 1.246
+  svcDist: exp
+  meanSvc: 3.252
+  maxServers: !!int 3
+  availability: !!float 0.62
+  retainRate: !!float 0.68
+  incrementMin: !!int 16
+  incrementRange: !!int 38
+
+### DP 82
+- arrivalRate: !!float 1.188
+  svcDist: unif
+  meanSvc: 0.51
+  maxServers: !!int 2
+  availability: !!float 0.45
+  retainRate: !!float 0.6
+  incrementMin: !!int 0
+  incrementRange: !!int 16
+
+### DP 83
+- arrivalRate: !!float 1.768
+  svcDist: unif
+  meanSvc: 2.13
+  maxServers: !!int 3
+  availability: !!float 0.41
+  retainRate: !!float 0.7
+  incrementMin: !!int 2
+  incrementRange: !!int 29
+
+### DP 84
+- arrivalRate: !!float 0.317
+  svcDist: exp
+  meanSvc: 3.875
+  maxServers: !!int 2
+  availability: !!float 0.43
+  retainRate: !!float 0.88
+  incrementMin: !!int 14
+  incrementRange: !!int 3
+
+### DP 85
+- arrivalRate: !!float 0.143
+  svcDist: unif
+  meanSvc: 0.26
+  maxServers: !!int 3
+  availability: !!float 0.37
+  retainRate: !!float 0.86
+  incrementMin: !!int 11
+  incrementRange: !!int 45
+
+### DP 86
+- arrivalRate: !!float 1.13
+  svcDist: unif
+  meanSvc: 1.258
+  maxServers: !!int 2
+  availability: !!float 0.64
+  retainRate: !!float 0.53
+  incrementMin: !!int 19
+  incrementRange: !!int 44
+
+### DP 87
+- arrivalRate: !!float 1.42
+  svcDist: unif
+  meanSvc: 2.255
+  maxServers: !!int 3
+  availability: !!float 0.8
+  retainRate: !!float 0.33
+  incrementMin: !!int 19
+  incrementRange: !!int 24
+
+### DP 88
+- arrivalRate: !!float 0.201
+  svcDist: unif
+  meanSvc: 4.0
+  maxServers: !!int 2
+  availability: !!float 0.66
+  retainRate: !!float 0.31
+  incrementMin: !!int 3
+  incrementRange: !!int 50
+
+### DP 89
+- arrivalRate: !!float 0.259
+  svcDist: unif
+  meanSvc: 0.385
+  maxServers: !!int 3
+  availability: !!float 0.76
+  retainRate: !!float 0.25
+  incrementMin: !!int 9
+  incrementRange: !!int 4
+
+### DP 90
+- arrivalRate: !!float 1.594
+  svcDist: tri
+  meanSvc: 1.133
+  maxServers: !!int 2
+  availability: !!float 0.9
+  retainRate: !!float 0.78
+  incrementMin: !!int 8
+  incrementRange: !!int 21
+
+### DP 91
+- arrivalRate: !!float 1.478
+  svcDist: tri
+  meanSvc: 3.127
+  maxServers: !!int 2
+  availability: !!float 0.84
+  retainRate: !!float 0.66
+  incrementMin: !!int 3
+  incrementRange: !!int 41
+
+### DP 92
+- arrivalRate: !!float 0.607
+  svcDist: sexp
+  meanSvc: 2.629
+  maxServers: !!int 3
+  availability: !!float 0.82
+  retainRate: !!float 0.8
+  incrementMin: !!int 13
+  incrementRange: !!int 19
+
+### DP 93
+- arrivalRate: !!float 0.781
+  svcDist: sexp
+  meanSvc: 1.008
+  maxServers: !!int 1
+  availability: !!float 0.6
+  retainRate: !!float 0.64
+  incrementMin: !!int 16
+  incrementRange: !!int 42
+
+### DP 94
+- arrivalRate: !!float 1.652
+  svcDist: tri
+  meanSvc: 1.632
+  maxServers: !!int 3
+  availability: !!float 0.27
+  retainRate: !!float 0.39
+  incrementMin: !!int 13
+  incrementRange: !!int 36
+
+### DP 95
+- arrivalRate: !!float 1.304
+  svcDist: sexp
+  meanSvc: 3.377
+  maxServers: !!int 2
+  availability: !!float 0.29
+  retainRate: !!float 0.43
+  incrementMin: !!int 15
+  incrementRange: !!int 12
+
+### DP 96
+- arrivalRate: !!float 0.433
+  svcDist: sexp
+  meanSvc: 2.504
+  maxServers: !!int 3
+  availability: !!float 0.47
+  retainRate: !!float 0.41
+  incrementMin: !!int 6
+  incrementRange: !!int 33
+
+### DP 97
+- arrivalRate: !!float 0.897
+  svcDist: sexp
+  meanSvc: 0.759
+  maxServers: !!int 1
+  availability: !!float 0.53
+  retainRate: !!float 0.47
+  incrementMin: !!int 4
+  incrementRange: !!int 13
